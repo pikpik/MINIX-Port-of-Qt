@@ -708,14 +708,6 @@ void QTemporaryFile::setFileTemplate(const QString &name)
 */
 
 
-/*
-Test - pikpik
-*/
-
-#ifdef read
-#  error 'Read is a macro.'
-#endif
-
 /*!
   If \a file is not on a local disk, a temporary file is created
   on a local disk, \a file is copied into the temporary local file,

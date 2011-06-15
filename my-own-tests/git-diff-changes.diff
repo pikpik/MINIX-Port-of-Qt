@@ -1,0 +1,35 @@
+diff --git a/configure b/configure
+index 5e8ef17..3ebe1cf 100755
+--- a/configure
++++ b/configure
+@@ -2607,6 +2607,9 @@ if [ -z "$PLATFORM" ]; then
+      BSD/OS:*|BSD/386:*)
+         PLATFORM=bsdi-g++
+         ;;
++     Minix:*)
++	PLATFORM=minix-g++
++	;;
+      IRIX*:*)
+         #PLATFORM=irix-g++
+         PLATFORM=irix-cc
+diff --git a/src/corelib/global/qglobal.h b/src/corelib/global/qglobal.h
+index fcee35d..f8bb83b 100644
+--- a/src/corelib/global/qglobal.h
++++ b/src/corelib/global/qglobal.h
+@@ -159,6 +159,7 @@ namespace QT_NAMESPACE {}
+      NETBSD   - NetBSD
+      OPENBSD  - OpenBSD
+      BSDI     - BSD/OS
++     MINIX    - Minix 3.1.8
+      IRIX     - SGI Irix
+      OSF      - HP Tru64 UNIX
+      SCO      - SCO OpenServer 5
+@@ -230,6 +231,8 @@ namespace QT_NAMESPACE {}
+ #elif defined(__bsdi__)
+ #  define Q_OS_BSDI
+ #  define Q_OS_BSD4
++#elif defined(__minix)
++#  define Q_OS_MINIX
+ #elif defined(__sgi)
+ #  define Q_OS_IRIX
+ #elif defined(__osf__)

@@ -57,10 +57,6 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/qnamespace.h>
 
-#ifdef Q_OS_MINIX
-#include <pthread.h>
-#endif
-
 QT_BEGIN_NAMESPACE
 
 class QMutexPrivate {

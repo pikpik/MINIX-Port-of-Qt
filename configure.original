@@ -2607,9 +2607,6 @@ if [ -z "$PLATFORM" ]; then
      BSD/OS:*|BSD/386:*)
         PLATFORM=bsdi-g++
         ;;
-     Minix:*)
-	PLATFORM=minix-g++
-	;;
      IRIX*:*)
         #PLATFORM=irix-g++
         PLATFORM=irix-cc
@@ -8502,15 +8499,7 @@ EOF
 
     # if you get errors about the length of the command line to awk, change the -l arg
     # to split below
-    echo "Splitting..."
-    echo I\'m: `uname`
-    if [ `uname` = "Minix" ]
-      then
-        echo "Minix style"
-        split -100 .projects.all .projects.all.
-      else
-        split -l 100 .projects.all .projects.all.
-    fi
+    split -l 100 .projects.all .projects.all.
     for p in .projects.all.*; do
        "$AWK" -f projects.awk `cat $p`
        [ -f .projects.1.tmp ] && cat .projects.1.tmp >> .projects.1

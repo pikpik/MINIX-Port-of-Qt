@@ -58,8 +58,7 @@
 
 QT_BEGIN_NAMESPACE
 
-#if !defined(QT_HPUX_LD) && !defined(Q_OS_VXWORKS) && \
-    !defined(Q_OS_MINIX)
+#if !defined(QT_HPUX_LD) && !defined(Q_OS_VXWORKS)
 QT_BEGIN_INCLUDE_NAMESPACE
 #include <dlfcn.h>
 QT_END_INCLUDE_NAMESPACE
@@ -69,8 +68,6 @@ static QString qdlerror()
 {
 #if defined(Q_OS_VXWORKS)
     const char *err = "VxWorks does not support dynamic libraries.";
-#elif defined(Q_OS_MINIX)
-    const char *err = "MINIX does not support dynamic libraries.";    
 #elif !defined(QT_HPUX_LD)
     const char *err = dlerror();
 #else
@@ -82,7 +79,7 @@ static QString qdlerror()
 bool QLibraryPrivate::load_sys()
 {
     QString attempt;
-#if !defined(Q_OS_VXWORKS) && !defined(Q_OS_MINIX)
+#if !defined(Q_OS_VXWORKS)
     QFileInfo fi(fileName);
 
 #if defined(Q_OS_SYMBIAN)
@@ -234,7 +231,7 @@ bool QLibraryPrivate::load_sys()
         }
     }
 #endif
-#endif // Q_OS_VXWORKS Q_OS_MINIX
+#endif // Q_OS_VXWORKS
     if (!pHnd) {
         errorString = QLibrary::tr("Cannot load library %1: %2").arg(fileName).arg(qdlerror());
     }
@@ -247,7 +244,7 @@ bool QLibraryPrivate::load_sys()
 
 bool QLibraryPrivate::unload_sys()
 {
-#if !defined(Q_OS_VXWORKS) && !defined(Q_OS_MINIX)
+#if !defined(Q_OS_VXWORKS)
 #  if defined(QT_HPUX_LD)
     if (shl_unload((shl_t)pHnd)) {
 #  else
@@ -275,11 +272,7 @@ void* QLibraryPrivate::resolve_sys(const char* symbol)
     char* undrscr_symbol = new char[strlen(symbol)+2];
     undrscr_symbol[0] = '_';
     strcpy(undrscr_symbol+1, symbol);
-#if defined(Q_OS_MINIX)
-    void *address = 0;
-#else
     void* address = dlsym(pHnd, undrscr_symbol);
-#endif
     delete [] undrscr_symbol;
 #elif defined(QT_HPUX_LD)
     void* address = 0;

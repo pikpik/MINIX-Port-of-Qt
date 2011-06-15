@@ -68,10 +68,6 @@
 #  endif
 #endif // QT_LINUXBASE
 
-#ifdef Q_OS_MINIX
- #  define Q_OS_BSD4
-#endif
-
 #include <qplatformdefs.h>
 
 QT_BEGIN_NAMESPACE
@@ -96,15 +92,9 @@ static QNetworkInterface::InterfaceFlags convertFlags(uint rawFlags)
 {
     QNetworkInterface::InterfaceFlags flags = 0;
     flags |= (rawFlags & IFF_UP) ? QNetworkInterface::IsUp : QNetworkInterface::InterfaceFlag(0);
-#ifdef IFF_RUNNING //MINIX doesn't define IFF_RUNNING
     flags |= (rawFlags & IFF_RUNNING) ? QNetworkInterface::IsRunning : QNetworkInterface::InterfaceFlag(0);
-#endif
-#ifdef IFF_BROADCAST //MINIX doesn't define IFF_BROADCAST
     flags |= (rawFlags & IFF_BROADCAST) ? QNetworkInterface::CanBroadcast : QNetworkInterface::InterfaceFlag(0);
-#endif
-#ifdef IFF_LOOPBACK //MINIX doesn't define IFF_LOOPBACK
     flags |= (rawFlags & IFF_LOOPBACK) ? QNetworkInterface::IsLoopBack : QNetworkInterface::InterfaceFlag(0);
-#endif
 #ifdef IFF_POINTOPOINT //cygwin doesn't define IFF_POINTOPOINT
     flags |= (rawFlags & IFF_POINTOPOINT) ? QNetworkInterface::IsPointToPoint : QNetworkInterface::InterfaceFlag(0);
 #endif

@@ -90,10 +90,6 @@ _LIT(qt_symbianFilter, "Symbianv*.sis");
 _LIT(qt_symbianSystemInstallDir, "z:\\system\\install\\");
 #endif
 
-#if defined(Q_OS_MINIX)
-# include <pthread.h>
-#endif
-
 QT_BEGIN_NAMESPACE
 
 
@@ -2650,8 +2646,7 @@ void qsrand(uint seed)
 */
 int qrand()
 {
-#if defined(Q_OS_UNIX) && !defined(QT_NO_THREAD) && !defined(Q_OS_SYMBIAN) \
-    && !defined(Q_OS_MINIX)
+#if defined(Q_OS_UNIX) && !defined(QT_NO_THREAD) && !defined(Q_OS_SYMBIAN)
     SeedStorage *seedStorage = randTLS();
     if (seedStorage) {
         SeedStorageType *pseed = seedStorage->localData();
@@ -2661,7 +2656,7 @@ int qrand()
         }
         return rand_r(pseed);
     } else {
-        //global static seed storage should always exist,
+        //golbal static seed storage should always exist,
         //except after being deleted by QGlobalStaticDeleter.
         //But since it still can be called from destructor of another
         //global static object, fallback to qrand()

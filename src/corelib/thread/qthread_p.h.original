@@ -66,10 +66,6 @@
 #include <e32base.h>
 #endif
 
-#ifdef Q_OS_MINIX
-#include <pthread.h>
-#endif
-
 QT_BEGIN_NAMESPACE
 
 class QAbstractEventDispatcher;

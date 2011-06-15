@@ -56,6 +56,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#if defined(Q_OS_MINIX)
+#undef select
+#endif
+
 // VxWorks doesn't correctly set the _POSIX_... options
 #if defined(Q_OS_VXWORKS)
 #  if defined(_POSIX_MONOTONIC_CLOCK) && (_POSIX_MONOTONIC_CLOCK <= 0)

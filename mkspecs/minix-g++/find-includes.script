@@ -1,0 +1,18 @@
+list=` \
+grep "include <" qplatformdefs.h | \
+sed 's/#include <//' | \
+sed 's/>//' | \
+sed 's/\/\*//' | \
+sed 's/\*\///' \
+`
+
+for name in $list
+do
+	echo -n "${name}... "
+	if [ -f "/usr/include/${name}" ]
+	then
+		echo "Yes"
+	else
+		echo "No"
+	fi
+done

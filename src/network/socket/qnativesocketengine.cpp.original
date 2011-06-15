@@ -109,12 +109,6 @@
 # include "qtcpserver.h"
 #endif
 
-#ifdef Q_OS_MINIX
-# undef accept
-# undef write
-# undef read
-#endif
-
 QT_BEGIN_NAMESPACE
 
 //#define QNATIVESOCKETENGINE_DEBUG

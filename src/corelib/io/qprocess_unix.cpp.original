@@ -82,11 +82,6 @@ QT_END_NAMESPACE
 
 #include "qplatformdefs.h"
 
-#ifdef Q_OS_MINIX
-#include <qfile.h>
-#undef connect
-#endif
-
 #include "qprocess.h"
 #include "qprocess_p.h"
 #include "private/qcore_unix_p.h"
@@ -110,10 +105,6 @@ QT_END_NAMESPACE
 #include <errno.h>
 #include <stdlib.h>
 #include <string.h>
-
-#ifdef Q_OS_MINIX
-#undef connect
-#endif
 
 QT_BEGIN_NAMESPACE
 

@@ -52,7 +52,7 @@
 #include <winsock.h>
 #endif
 
-#if defined(QT_LINUXBASE) || defined(Q_OS_MINIX)
+#ifdef QT_LINUXBASE
 #  include <arpa/inet.h>
 #endif
 

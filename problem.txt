@@ -1,0 +1,11 @@
+
+This is the Qt for Linux/X11 Open Source Edition.
+
+You are licensed to use this software under the terms of
+the Lesser GNU General Public License (LGPL) versions 2.1.
+
+Type 'L' to view the Lesser GNU General Public License version 2.1.
+Type 'yes' to accept this license offer.
+Type 'no' to decline this license offer.
+
+Do you accept the terms of the license? 

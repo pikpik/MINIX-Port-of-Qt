@@ -1,0 +1,33 @@
+Which edition of Qt do you want to use ?
+
+Type 'c' if you want to use the Commercial Edition.
+Type 'o' if you want to use the Open Source Edition.
+
+
+
+This is the Qt for Linux/X11 Open Source Edition.
+
+You are licensed to use this software under the terms of
+the Lesser GNU General Public License (LGPL) versions 2.1.
+
+Type 'L' to view the Lesser GNU General Public License version 2.1.
+Type 'yes' to accept this license offer.
+Type 'no' to decline this license offer.
+
+Do you accept the terms of the license? 
+Use of uninitialized value $ts in utime at /usr/testing/for-qt/qt/bin/syncqt line 337.
+header created for /usr/testing/for-qt/qt/src/corelib/global/qconfig.h (1)
+Creating qmake. Please wait...
+g++ -c -o project.o -pipe -DQMAKE_OPENSOURCE_EDITION -I. -Igenerators -Igenerators/unix -Igenerators/win32 -Igenerators/mac -Igenerators/symbian -I/usr/testing/for-qt/qt/include -I/usr/testing/for-qt/qt/include/QtCore -I/usr/testing/for-qt/qt/src/corelib/global -I/usr/testing/for-qt/qt/src/corelib/xml -I/usr/testing/for-qt/qt/tools/shared -DQT_NO_PCRE -DQT_BUILD_QMAKE -DQT_BOOTSTRAPPED -DQLIBRARYINFO_EPOCROOT -DQT_NO_TEXTCODEC -DQT_NO_UNICODETABLES -DQT_NO_COMPONENT -DQT_NO_STL -DQT_NO_COMPRESS -I/usr/testing/for-qt/qt/mkspecs/minix-g++ -DHAVE_QCONFIG_CPP -DQT_NO_THREAD -DQT_NO_QOBJECT -DQT_NO_GEOM_VARIANT  project.cpp
+In file included from /usr/testing/for-qt/qt/include/QtCore/qglobal.h:1,
+                 from /usr/testing/for-qt/qt/include/QtCore/../../src/corelib/tools/qalgorithms.h:45,
+                 from /usr/testing/for-qt/qt/include/QtCore/qalgorithms.h:1,
+                 from /usr/testing/for-qt/qt/include/QtCore/../../src/corelib/tools/qstringlist.h:45,
+                 from /usr/testing/for-qt/qt/include/QtCore/qstringlist.h:1,
+                 from project.h:45,
+                 from project.cpp:42:
+/usr/testing/for-qt/qt/include/QtCore/../../src/corelib/global/qglobal.h:261:4: error: #error "Qt has not been ported to this OS - talk to qt-bugs@trolltech.com"
+project.cpp: In member function 'QStringList QMakeProject::doProjectExpand(QString, QList<QStringList>, QMap<QString, QStringList>&)':
+project.cpp:2087: error: 'popen' was not declared in this scope
+project.cpp:2101: error: 'pclose' was not declared in this scope
+gmake: *** [project.o] Error 1

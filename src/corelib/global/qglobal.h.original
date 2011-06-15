@@ -159,7 +159,6 @@ namespace QT_NAMESPACE {}
      NETBSD   - NetBSD
      OPENBSD  - OpenBSD
      BSDI     - BSD/OS
-     MINIX    - Minix 3.1.8
      IRIX     - SGI Irix
      OSF      - HP Tru64 UNIX
      SCO      - SCO OpenServer 5
@@ -231,12 +230,6 @@ namespace QT_NAMESPACE {}
 #elif defined(__bsdi__)
 #  define Q_OS_BSDI
 #  define Q_OS_BSD4
-#elif defined(__minix)
- #  define Q_OS_MINIX
-/* #  define Q_OS_BSD4 */
-/* This is a last resort really. */
-#  undef read
-#  undef write
 #elif defined(__sgi)
 #  define Q_OS_IRIX
 #elif defined(__osf__)

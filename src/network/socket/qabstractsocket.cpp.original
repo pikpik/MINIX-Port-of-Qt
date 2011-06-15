@@ -378,12 +378,6 @@
 
 #include <private/qthread_p.h>
 
-#ifdef Q_OS_MINIX
-# undef connect
-# undef write
-# undef read
-#endif
-
 #ifdef QABSTRACTSOCKET_DEBUG
 #include <qdebug.h>
 #endif

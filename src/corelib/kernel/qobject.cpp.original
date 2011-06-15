@@ -67,12 +67,6 @@
 #include <ctype.h>
 #include <limits.h>
 
-#ifdef Q_OS_MINIX
-#undef connect
-#undef read
-#undef write
-#endif
-
 QT_BEGIN_NAMESPACE
 
 static int DIRECT_CONNECTION_ONLY = 0;

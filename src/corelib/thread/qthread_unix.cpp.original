@@ -54,25 +54,13 @@
 #include <private/qeventdispatcher_unix_p.h>
 #endif
 
-#ifdef Q_OS_MINIX
-#include <pthread.h>
-#undef sleep
-#undef usleep
-#undef msleep
-#endif
-
 #include "qthreadstorage.h"
 
 #include "qthread_p.h"
 
 #include "qdebug.h"
 
-#if defined(Q_OS_MINIX)
-#include <minix/sched.h>
-#else
 #include <sched.h>
-#endif
-
 #include <errno.h>
 
 #ifdef Q_OS_BSD4
@@ -430,9 +418,6 @@ int QThread::idealThreadCount()
 #elif defined(Q_OS_IRIX)
     // IRIX
     cores = (int)sysconf(_SC_NPROC_ONLN);
-#elif defined(Q_OS_MINIX)
-    // MINIX
-    cores = 1;
 #elif defined(Q_OS_INTEGRITY)
     // as of aug 2008 Integrity only supports one single core CPU
     cores = 1;

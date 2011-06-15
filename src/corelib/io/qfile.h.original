@@ -50,14 +50,6 @@
 #error qfile.h must be included before any header file that defines open
 #endif
 
-#ifdef read
-#error qfile.h must be included before any header file that defines read
-#endif
-
-#ifdef write
-#error qfile.h must be included before any header file that defines write
-#endif
-
 QT_BEGIN_HEADER
 
 QT_BEGIN_NAMESPACE

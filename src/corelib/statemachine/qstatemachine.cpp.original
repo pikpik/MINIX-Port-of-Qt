@@ -73,10 +73,6 @@
 #include <QtCore/qmetaobject.h>
 #include <qdebug.h>
 
-#ifdef Q_OS_MINIX
-# undef connect
-#endif
-
 QT_BEGIN_NAMESPACE
 
 /*!
